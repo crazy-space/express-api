@@ -1,0 +1,37 @@
+/*
+ * @Author: luoyz
+ * @Date: 2022-09-19 11:20:47
+ * @LastEditors: luoyz
+ * @LastEditTime: 2022-09-19 13:13:20
+ * @FilePath: \crazy-space\crazy-express\bin\www
+ */
+/**
+* node服务
+*/
+const app = require('../app')
+const http = require('http')
+
+const port = normalizePort(process.env.PORT || '5174')
+app.set('port', port)
+
+// 创建服务
+const server = http.createServer(app)
+// 监听服务
+server.listen(port)
+
+// 端口处理
+function normalizePort(val) {
+  let port = parseInt(val, 10)
+  if (isNaN(port)) {
+    return val
+  }
+
+  if (port >= 0) {
+    return port
+  }
+
+  return false
+}
+
+// TODO 监听错误
+// TODO 监听请求
